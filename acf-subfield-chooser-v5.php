@@ -94,24 +94,24 @@ class acf_field_subfield_chooser extends acf_field {
 		*/
 		
 		acf_render_field_setting( $field, array(
-			'label'			=> __('enter repeater field name (field_name) <span class="acf-required">*</span>','acf-subfield_chooser'),
-			'instructions'	=> __('','acf-subfield_chooser'),
+			'label'			=> __('Repeater Name <span class="acf-required">*</span>','acf-subfield_chooser'),
+			'instructions'	=> __('enter repeater field name (field_name)','acf-subfield_chooser'),
 			'type'			=> 'text',
 			'require'		=> 1,
 			'name'			=> 'repeater_name',
 		));
 
 		acf_render_field_setting( $field, array(
-			'label'			=> __('enter "option" or post ID <span class="acf-required">*</span>','acf-subfield_chooser'),
-			'instructions'	=> __('','acf-subfield_chooser'),
+			'label'			=> __('Location <span class="acf-required">*</span>','acf-subfield_chooser'),
+			'instructions'	=> __('enter "option" or post ID','acf-subfield_chooser'),
 			'type'			=> 'text',
 			'require'		=> 1,
 			'name'			=> 'field_location',
 		));
 
 		acf_render_field_setting( $field, array(
-			'label'			=> __('Choose sub field name for show in select field <span class="acf-required">*</span>','acf-subfield_chooser'),
-			'instructions'	=> __('','acf-subfield_chooser'),
+			'label'			=> __('Sub Field Name <span class="acf-required">*</span>','acf-subfield_chooser'),
+			'instructions'	=> __('Choose sub field name for show in select field','acf-subfield_chooser'),
 			'type'			=> 'text',
 			'require'		=> 1,
 			'name'			=> 'subfield_name',
@@ -130,8 +130,8 @@ class acf_field_subfield_chooser extends acf_field {
         ));
 
         acf_render_field_setting( $field, array(
-			'label'			=> __('enter sub field name for return value in select field <span class="acf-required">*</span>','acf-subfield_chooser'),
-			'instructions'	=> __('','acf-subfield_chooser'),
+			'label'			=> __('Return Sub Field Value <span class="acf-required">*</span>','acf-subfield_chooser'),
+			'instructions'	=> __('enter sub field name for return value in select field','acf-subfield_chooser'),
 			'type'			=> 'text',
 			'require'		=> 1,
 			'name'			=> 'Other_subfield_name',
@@ -175,6 +175,7 @@ class acf_field_subfield_chooser extends acf_field {
 		*  This will show what data is available
 		*/
 		
+
 		$subfield_list = get_field($field['repeater_name'], $field['field_location']);
 
 			echo '<div class="">';
