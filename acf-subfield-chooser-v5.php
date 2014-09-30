@@ -175,7 +175,6 @@ class acf_field_subfield_chooser extends acf_field {
 		*  This will show what data is available
 		*/
 		
-
 		$subfield_list = get_field($field['repeater_name'], $field['field_location']);
 
 			echo '<div class="">';
