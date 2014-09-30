@@ -48,6 +48,7 @@ class acf_field_subfield_chooser extends acf_field {
 			'subfield_name'			=> '',
 			'data_type'				=>  1,
 			'Other_subfield_name'	=> '',
+			'null_value'			=>  0,
 		);
 		
 		
@@ -93,45 +94,59 @@ class acf_field_subfield_chooser extends acf_field {
 		*/
 		
 		acf_render_field_setting( $field, array(
-			'label'			=> __('Repeater Name','acf-subfield_chooser'),
+			'label'			=> __('enter repeater field name (field_name) <span class="acf-required">*</span>','acf-subfield_chooser'),
 			'instructions'	=> __('','acf-subfield_chooser'),
 			'type'			=> 'text',
+			'require'		=> 1,
 			'name'			=> 'repeater_name',
 		));
 
 		acf_render_field_setting( $field, array(
-			'label'			=> __('Location','acf-subfield_chooser'),
+			'label'			=> __('enter "option" or post ID <span class="acf-required">*</span>','acf-subfield_chooser'),
 			'instructions'	=> __('','acf-subfield_chooser'),
 			'type'			=> 'text',
+			'require'		=> 1,
 			'name'			=> 'field_location',
 		));
 
 		acf_render_field_setting( $field, array(
-			'label'			=> __('Sub Field Name','acf-subfield_chooser'),
+			'label'			=> __('Choose sub field name for show in select field <span class="acf-required">*</span>','acf-subfield_chooser'),
 			'instructions'	=> __('','acf-subfield_chooser'),
 			'type'			=> 'text',
+			'require'		=> 1,
 			'name'			=> 'subfield_name',
 		));
 
-		 // multi or single
         acf_render_field_setting( $field, array(
             'label'			=> __('Return Value','post_type_chooser'),
             'instructions'	=> __('Specify the returned value on front end','post_type_chooser'),
             'type'			=> 'radio',
             'name'			=> 'data_type',
             'choices'		=> array(
-                1				=> __("Row Id",'post_type_chooser'),
+                1				=> __("Row ID",'post_type_chooser'),
                 0				=> __("Subfield Value",'post_type_chooser'),
             ),
             'layout'	=>	'horizontal',
         ));
 
         acf_render_field_setting( $field, array(
-			'label'			=> __('Return Sub Field Value','acf-subfield_chooser'),
+			'label'			=> __('enter sub field name for return value in select field <span class="acf-required">*</span>','acf-subfield_chooser'),
 			'instructions'	=> __('','acf-subfield_chooser'),
 			'type'			=> 'text',
+			'require'		=> 1,
 			'name'			=> 'Other_subfield_name',
 		));
+
+		acf_render_field_setting( $field, array(
+            'label'			=> __('Allow Null ?','post_type_chooser'),
+            'type'			=> 'radio',
+            'name'			=> 'null_value',
+            'choices'		=> array(
+                1				=> __("null",'post_type_chooser'),
+                0				=> __("dont null",'post_type_chooser'),
+            ),
+            'layout'	=>	'horizontal',
+        ));
 
 	}
 	
@@ -165,6 +180,9 @@ class acf_field_subfield_chooser extends acf_field {
 
 			echo '<div class="">';
 				echo '<select class=""  name="' . $field['name'] . '" id="' . $field['key'] . '-subfield">';
+					if ($field['null_value']) {
+						echo '<option value=""'.selected($field['value'], $v[$field['Other_subfield_name']], false).'>Null</option>';
+					}
 					$i = 0;
 					foreach ($subfield_list as $k => $v) {
 						foreach ($v as $k1 => $v1) {
@@ -173,7 +191,7 @@ class acf_field_subfield_chooser extends acf_field {
 								if ($field['data_type']) {
 									echo '<option value="' . $k . '"'.selected($field['value'], $v[$field['Other_subfield_name']], false).'>' . $v1 . '</option>';
 								} else {
-									echo '<option value="' . $v[$field['Other_subfield_name']] . '"'.selected($field['value'], $v[$field['Other_subfield_name']], false).'>' . $v1 . '</option>';
+									echo '<option value="' . sanitize_title($v[$field['Other_subfield_name']]) . '"'.selected($field['value'], sanitize_title($v[$field['Other_subfield_name']]), false).'>' . $v1 . '</option>';
 								}
 															}
 						}

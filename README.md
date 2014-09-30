@@ -66,4 +66,7 @@ This ACF field type is compatible with:
 4. Please refer to the description for more info regarding the field type settings
 
 ### Changelog
-Please see `readme.txt` for changelog
+
+## 1.1.0
+* add: Allow null
+* Better Description
