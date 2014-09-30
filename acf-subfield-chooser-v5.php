@@ -181,7 +181,7 @@ class acf_field_subfield_chooser extends acf_field {
 			echo '<div class="">';
 				echo '<select class=""  name="' . $field['name'] . '" id="' . $field['key'] . '-subfield">';
 					if ($field['null_value']) {
-						echo '<option value=""'.selected($field['value'], $v[$field['Other_subfield_name']], false).'>Null</option>';
+						echo '<option value=""'.selected($field['value'], $v[$field['Other_subfield_name']], false).'>- Select -</option>';
 					}
 					$i = 0;
 					foreach ($subfield_list as $k => $v) {
