@@ -142,8 +142,8 @@ class acf_field_subfield_chooser extends acf_field {
             'type'			=> 'radio',
             'name'			=> 'null_value',
             'choices'		=> array(
-                1				=> __("null",'post_type_chooser'),
-                0				=> __("dont null",'post_type_chooser'),
+                1				=> __("Yes",'post_type_chooser'),
+                0				=> __("No",'post_type_chooser'),
             ),
             'layout'	=>	'horizontal',
         ));
