@@ -1,14 +1,16 @@
 <?php
 
 /*
-Plugin Name: Advanced Custom Fields: Subfield Chooser
-Plugin URI: https://github.com/reyhoun/acf-subfield-chooser.git
-Description: Return custom subfield value of a custom repeater field as a select box
-Version: 1.1.0
-Author: Reyhoun
-Author URI: reyhoun.com
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Plugin Name: Advanced Custom Fields: Subfield Chooser
+ * Plugin URI: https://github.com/reyhoun/acf-subfield-chooser
+ * Description: Return custom subfield value of a custom repeater field as a select box
+ * Version: 1.2.0
+ * Author: Reyhoun
+ * Author URI: reyhoun.com
+ * License: GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * GitHub Plugin URI: https://github.com/reyhoun/acf-subfield-chooser
+ * GitHub Branch:     master
 */
 
 
@@ -31,6 +33,4 @@ function include_field_types_subfield_chooser( $version ) {
 
 add_action('acf/include_field_types', 'include_field_types_subfield_chooser');	
 
-
-	
 ?>
