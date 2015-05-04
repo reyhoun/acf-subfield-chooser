@@ -189,9 +189,9 @@ class acf_field_subfield_chooser extends acf_field {
 							if ($k1 == $field['subfield_name']) {
 
 								if ($field['data_type']) {
-									echo '<option value="' . $k . '"'.selected($field['value'], $v[$field['Other_subfield_name']], false).'>' . $v1 . '</option>';
+									echo '<option value="' . $k . '"'.selected($field['value'], $k, false).'>' . $v1 . '</option>';
 								} else {
-									echo '<option value="' . sanitize_title($v[$field['Other_subfield_name']]) . '"'.selected($field['value'], sanitize_title($v[$field['Other_subfield_name']]), false).'>' . $v1 . '</option>';
+									echo '<option value="' . sanitize_title($v[$field['Other_subfield_name']]) . '"'.selected($field['value'], $k), false).'>' . $v1 . '</option>';
 								}
 															}
 						}
